@@ -13,15 +13,15 @@ export const Header = () => {
         backgroundBlendMode: 'multiply'
       }}
     >
-      <div className="container mx-auto px-4 py-6 relative z-10">
+      <div className="container mx-auto px-4 py-4 relative z-10">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="p-3 bg-white/10 rounded-xl backdrop-blur-sm">
               <Heart className="h-6 w-6" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold tracking-tight">MediTracker</h1>
-              <p className="text-primary-foreground/90 text-sm font-medium">Stay healthy, stay on track</p>
+              <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">SmartMed</h1>
+              <p className="text-primary-foreground/90 text-xs sm:text-sm font-medium">Your intelligent medication companion</p>
             </div>
           </div>
           

@@ -56,9 +56,9 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-4 py-6">
         {/* Stats Overview */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
           <StatsCard
             title="Medications Taken Today"
             value={`${todayStats.taken}/${todayStats.total}`}
@@ -89,7 +89,7 @@ const Index = () => {
         </div>
 
         {/* Action Bar */}
-        <div className="flex justify-between items-center mb-6">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
           <div>
             <h2 className="text-2xl font-bold">Today's Medications</h2>
             <p className="text-muted-foreground">
@@ -105,7 +105,7 @@ const Index = () => {
         </div>
 
         {/* Medications Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
           {medications.map((medication) => (
             <MedicationCard
               key={medication.id}
