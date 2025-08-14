@@ -53,30 +53,39 @@ export type Database = {
         Row: {
           createdat: string | null
           dosage: number
+          initial_quantity: number | null
           instructions: string | null
           lastupdated: string | null
           medicationid: string
           name: string
+          quantity_unit: string | null
+          remaining_quantity: number | null
           unit: string
           userid: string
         }
         Insert: {
           createdat?: string | null
           dosage: number
+          initial_quantity?: number | null
           instructions?: string | null
           lastupdated?: string | null
           medicationid?: string
           name: string
+          quantity_unit?: string | null
+          remaining_quantity?: number | null
           unit: string
           userid: string
         }
         Update: {
           createdat?: string | null
           dosage?: number
+          initial_quantity?: number | null
           instructions?: string | null
           lastupdated?: string | null
           medicationid?: string
           name?: string
+          quantity_unit?: string | null
+          remaining_quantity?: number | null
           unit?: string
           userid?: string
         }
@@ -89,6 +98,39 @@ export type Database = {
             referencedColumns: ["userid"]
           },
         ]
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          date_of_birth: string | null
+          email: string | null
+          gender: string | null
+          id: string
+          name: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          date_of_birth?: string | null
+          email?: string | null
+          gender?: string | null
+          id?: string
+          name?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          date_of_birth?: string | null
+          email?: string | null
+          gender?: string | null
+          id?: string
+          name?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
       }
       reminders: {
         Row: {
@@ -130,6 +172,7 @@ export type Database = {
           createdat: string | null
           enddate: string | null
           frequencytype: string
+          intake_times: string[] | null
           intervalhours: number | null
           lastupdated: string | null
           medicationid: string
@@ -141,6 +184,7 @@ export type Database = {
           createdat?: string | null
           enddate?: string | null
           frequencytype: string
+          intake_times?: string[] | null
           intervalhours?: number | null
           lastupdated?: string | null
           medicationid: string
@@ -152,6 +196,7 @@ export type Database = {
           createdat?: string | null
           enddate?: string | null
           frequencytype?: string
+          intake_times?: string[] | null
           intervalhours?: number | null
           lastupdated?: string | null
           medicationid?: string
