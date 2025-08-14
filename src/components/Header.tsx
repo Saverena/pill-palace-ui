@@ -1,8 +1,15 @@
-import { Heart, Settings } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/hooks/useAuth";
+import { Heart, User, History, Home } from "lucide-react";
 import heroImage from "@/assets/hero-medical.jpg";
 
 export const Header = () => {
+  const { user } = useAuth();
+  const location = useLocation();
+
+  if (!user) return null;
+
   return (
     <header 
       className="relative bg-gradient-primary text-primary-foreground shadow-glow overflow-hidden"
@@ -25,9 +32,43 @@ export const Header = () => {
             </div>
           </div>
           
-          <Button variant="ghost" size="icon" className="text-primary-foreground hover:bg-white/10 backdrop-blur-sm">
-            <Settings className="h-5 w-5" />
-          </Button>
+          <nav className="flex items-center space-x-2">
+            <Button 
+              asChild
+              variant={location.pathname === "/" ? "secondary" : "ghost"}
+              size="sm"
+              className="text-primary-foreground hover:bg-white/10"
+            >
+              <Link to="/">
+                <Home className="h-4 w-4 mr-2" />
+                Dashboard
+              </Link>
+            </Button>
+            
+            <Button 
+              asChild
+              variant={location.pathname === "/history" ? "secondary" : "ghost"}
+              size="sm"
+              className="text-primary-foreground hover:bg-white/10"
+            >
+              <Link to="/history">
+                <History className="h-4 w-4 mr-2" />
+                History
+              </Link>
+            </Button>
+            
+            <Button 
+              asChild
+              variant={location.pathname === "/profile" ? "secondary" : "ghost"}
+              size="sm"
+              className="text-primary-foreground hover:bg-white/10"
+            >
+              <Link to="/profile">
+                <User className="h-4 w-4 mr-2" />
+                Profile
+              </Link>
+            </Button>
+          </nav>
         </div>
       </div>
       
