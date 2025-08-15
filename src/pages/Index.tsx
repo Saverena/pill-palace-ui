@@ -25,10 +25,6 @@ const Index = () => {
   const [medications, setMedications] = useState<Medication[]>([]);
   const [medicationsLoading, setMedicationsLoading] = useState(true);
 
-  // Redirect to auth if not logged in
-  if (!loading && !user) {
-    return <Navigate to="/auth" replace />;
-  }
 
   useEffect(() => {
     if (user) {
@@ -58,6 +54,11 @@ const Index = () => {
       setMedicationsLoading(false);
     }
   };
+
+  // Redirect to auth if not logged in
+  if (!loading && !user) {
+    return <Navigate to="/auth" replace />;
+  }
 
   // Show loading state
   if (loading || medicationsLoading) {
